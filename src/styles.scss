@@ -1,26 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
-
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "../src/variables";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 @font-face {
   font-family: OpenSans;
-  src: url('./font/Open_Sans/static/OpenSans-Regular.ttf') format('truetype');
+  src: url("./font/Open_Sans/static/OpenSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: OpenSansBold;
-  src: url('./font/Open_Sans/static/OpenSans-Bold.ttf') format('truetype');
+  src: url("./font/Open_Sans/static/OpenSans-Bold.ttf") format("truetype");
 }
+
 @font-face {
   font-family: OpenSanslight;
-  src: url('./font/Open_Sans/static/OpenSans-Light.ttf') format('truetype');
+  src: url("./font/Open_Sans/static/OpenSans-Light.ttf") format("truetype");
 }
+
 body {
   font-family: OpenSans;
 }
-.login-title{
+
+.product-title {
   font-family: OpenSansBold;
-  span{
-  font-family: OpenSanslight;
+
+  span {
+    font-family: OpenSanslight;
   }
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-control,
+.form-control:focus,
+.form-control:active {
+  box-shadow: none;
+  outline: none;
+  border-color: #cccccc;
+  width: 100%;
+  text-indent: 25px;
+  height: 40px;
+  // border-radius: var(--bs-border-radius);
+}
+
+.form-control:active,
+.form-control:focus {
+  border-color: #d94e3b;
+}
+.form-control::placeholder{
+  color: #999999;
+}
+
+.input-group-icon {
+  border: none;
+  position: absolute;
+  left: 0;
+  z-index: 9;
+  height: 100%;
+  position: absolute;
+  z-index: 9;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.product-btn, .product-btn:hover, .product-btn:focus{
+  background-color: #D94E3B;
+  border-color: #D94E3B;
+  color: #fff;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.product-btn:active {
+  background: #D94E3B !important;
+  border-color: #D94E3B !important;
+  color: #fff !important;
+  -webkit-box-shadow: inset 0px 0px 5px #FFF2F2;
+     -moz-box-shadow: inset 0px 0px 5px #FFF2F2;
+          box-shadow: inset 0px 0px 5px #FFF2F2;
+   outline: none;
 }
