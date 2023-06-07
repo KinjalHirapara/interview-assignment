@@ -1,30 +1,53 @@
 @import '../../variables';
 
-.login-main{
+.product-container{
   height: 100vh;
-  .login-left-section{
+  .product-left-content{
     background: $primary-color;
-    .login-title-content{
+    position: relative;
+    .product-titles-container{
       align-items: flex-start;
       padding: 0px;
       gap: 24px;
-      width: 505px;
-      margin: auto;
-      height: 100%;
-      justify-content: center;
+      width: calc(505px + 71px);
+      padding-top: 189px;
+      padding-left: 71px;
+      .product-title{
+        font-weight: 700;
+        font-size: 52px;
+        line-height: 71px;
+        display: flex;
+        align-items: flex-end;
+        color: #000000;
+        &.shadow-effect::before{
+          content: '';
+          position: absolute;
+          width: 166px;
+          height: 166px;
+          left: 17.35px;
+          top: 180.31px;
+          background: #D94E3B;
+          opacity: 0.25;
+          filter: blur(51px);
+          transform: rotate(-15deg);
+        }
+      }
+      .product-description{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
-    .login-title{
-      font-weight: 700;
-      font-size: 52px;
-      line-height: 71px;
-      display: flex;
-      align-items: flex-end;
-      color: #000000;
+    .product-icons-image{
+      position: absolute;
+      bottom: 0;
+      right: 62px;
     }
-    .login-title-content{
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 22px;
+  }
+  .product-right-content{
+
+    .product-login-form {
+      width: 330px;
     }
   }
 }
