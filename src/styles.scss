@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../src/variables";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
 @font-face {
   font-family: OpenSans;
   src: url("./font/Open_Sans/static/OpenSans-Regular.ttf") format("truetype");
@@ -93,4 +93,14 @@ body {
 }
 .ng-invalid.ng-touched{
   border-color: #C20006;
+}
+
+.ng-valid.ng-touched{
+  border-color: #00A364;
+}
+.input-valid-icon{
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: #00A364;
 }

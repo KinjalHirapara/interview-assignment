@@ -37,6 +37,7 @@
                   <div class="form-group">
                     <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/User.png" /></span>
                     <input type="text" class="form-control" placeholder="Username" value="John Doe" formControlName="userName">
+                    <span *ngIf="this.myForm.get('userName')?.valid" class="input-valid-icon"><i class="bi bi-check-circle"></i></span>
                   </div>
                   <div class="invalid-input mt-2" *ngIf="myForm.get('userName')?.invalid && myForm.get('userName')?.touched">
                     <div *ngIf="myForm.get('userName')?.hasError('required')">
@@ -47,7 +48,8 @@
                 <div>
                   <div class="form-group">
                     <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/password_lock.png" /></span>
-                    <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                    <span *ngIf="this.myForm.get('password')?.valid" class="input-valid-icon"><i class="bi bi-check-circle"></i></span>
                   </div>
                   <div class="invalid-input mt-2" *ngIf="myForm.get('password')?.touched && myForm.get('password')?.errors">
                     <div *ngIf="myForm.get('password')?.hasError('required')">
@@ -70,7 +72,7 @@
                 <button class="btn product-btn" type="submit">Login</button>
               </div>
               <div class="sign-up-text mt-4 pt-2 text-center">
-                Don't have an Account? <a href="#">Sign Up</a>
+                Don't have an Account? <a href="#"><b>Sign Up</b></a>
               </div>
             </form>
           </div>
