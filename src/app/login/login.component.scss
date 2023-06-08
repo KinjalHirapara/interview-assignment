@@ -1,10 +1,22 @@
 @import '../../variables';
-
+@mixin media-breakpoint-down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
 .product-container{
-  height: 100vh;
+  .product-column{
+    @include media-breakpoint-down(768px) {
+      display: flex;
+      align-items: stretch;
+    }
+  }
   .product-left-content{
-    background: $primary-color;
+    background: $secondary-color;
     position: relative;
+    @include media-breakpoint-down(768px) {
+      height: auto !important;
+    }
     .product-titles-container{
       align-items: flex-start;
       padding: 0px;
@@ -12,6 +24,13 @@
       width: calc(505px + 71px);
       padding-top: 189px;
       padding-left: 71px;
+      @include media-breakpoint-down(768px) {
+        padding-top: 42px;
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 6px;
+        width: 100%;
+      }
       .product-title{
         font-weight: 700;
         font-size: 52px;
@@ -19,6 +38,10 @@
         display: flex;
         align-items: flex-end;
         color: #000000;
+        @include media-breakpoint-down(768px) {
+          font-size: 20px;
+          line-height: 33px;
+        }
         &.shadow-effect::before{
           content: '';
           position: absolute;
@@ -26,10 +49,13 @@
           height: 166px;
           left: 17.35px;
           top: 180.31px;
-          background: #D94E3B;
+          background: $primary-color;
           opacity: 0.25;
           filter: blur(51px);
           transform: rotate(-15deg);
+          @include media-breakpoint-down(768px) {
+            content: unset;
+          }
         }
       }
       .product-description{
@@ -42,18 +68,32 @@
       position: absolute;
       bottom: 0;
       right: 62px;
+      @include media-breakpoint-down(768px) {
+        right: 10px;
+      }
+      img{
+        @include media-breakpoint-down(768px) {
+          width: 80px;
+          height: 80px;
+        }
+      }
     }
   }
   .product-right-content{
-
+    @include media-breakpoint-down(768px) {
+      height: auto !important;
+    }
     .product-login-form {
       width: 330px;
       .product-lock{
         margin-top: 70px;
+        @include media-breakpoint-down(768px) {
+          margin-top: 35px;
+        }
         .lock-image{
           width: 48px;
           height: 48px;
-          background: #FFF2F2;
+          background: $secondary-color;
           border-radius: 48px;
         }
 
@@ -62,6 +102,10 @@
         font-weight: 600;
         font-size: 24px;
         line-height: 33px;
+        @include media-breakpoint-down(768px) {
+          font-size: 20px;
+          line-height: 27px;
+        }
       }
       .forgot-text {
         a{
@@ -86,3 +130,4 @@
     }
   }
 }
+

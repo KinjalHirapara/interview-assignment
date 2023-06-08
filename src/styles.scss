@@ -38,19 +38,19 @@ body {
 .form-control:active {
   box-shadow: none;
   outline: none;
-  border-color: #cccccc;
+  border-color: $border-color;
   width: 100%;
   text-indent: 25px;
   height: 40px;
-  // border-radius: var(--bs-border-radius);
+  font-size: 14px;
 }
 
 .form-control:active,
 .form-control:focus {
-  border-color: #d94e3b;
+  border-color: $primary-color;
 }
 .form-control::placeholder{
-  color: #999999;
+  color: $font-placeholder-color;
 }
 
 .input-group-icon {
@@ -69,8 +69,8 @@ body {
   padding: 10px;
 }
 .product-btn, .product-btn:hover, .product-btn:focus{
-  background-color: #D94E3B;
-  border-color: #D94E3B;
+  background-color: $primary-color;
+  border-color: $primary-color;
   color: #fff;
   font-style: normal;
   font-weight: 600;
@@ -81,11 +81,11 @@ body {
 }
 
 .product-btn:active {
-  background: #D94E3B !important;
-  border-color: #D94E3B !important;
+  background: $primary-color !important;
+  border-color: $primary-color !important;
   color: #fff !important;
-  -webkit-box-shadow: inset 0px 0px 5px #FFF2F2;
-     -moz-box-shadow: inset 0px 0px 5px #FFF2F2;
-          box-shadow: inset 0px 0px 5px #FFF2F2;
-   outline: none;
+  -webkit-box-shadow: inset 0px 0px 5px $secondary-color;
+  -moz-box-shadow: inset 0px 0px 5px $secondary-color;
+  box-shadow: inset 0px 0px 5px $secondary-color;
+  outline: none;
 }
