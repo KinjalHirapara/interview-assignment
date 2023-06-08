@@ -45,10 +45,6 @@ body {
   font-size: 14px;
 }
 
-.form-control:active,
-.form-control:focus {
-  border-color: $primary-color;
-}
 .form-control::placeholder{
   color: $font-placeholder-color;
 }
@@ -88,4 +84,13 @@ body {
   -moz-box-shadow: inset 0px 0px 5px $secondary-color;
   box-shadow: inset 0px 0px 5px $secondary-color;
   outline: none;
+}
+.invalid-input{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #C20006;
+}
+.ng-invalid.ng-touched{
+  border-color: #C20006;
 }

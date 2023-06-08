@@ -1,6 +1,6 @@
 <div class="product-container container-fluid px-0 vh-100">
   <div class="row mx-0 h-100">
-    <div class="product-column col-12 col-md-7 px-0 order-2 order-md-1">
+    <div class="product-column col-12 col-md-6 col-lg-7 px-0 order-2 order-md-1">
       <div class="product-left-content h-100">
         <div class="product-titles-container d-flex flex-column h-100">
           <div class="product-title shadow-effect">
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-5 px-0 order-1 order-md-2 m-auto">
+    <div class="col-12 col-md-6 col-lg-5 px-0 order-1 order-md-2 m-auto">
       <div class="product-right-content d-flex h-100">
         <div class="product-login-form m-auto">
           <div class="product-logo text-center">
@@ -31,22 +31,43 @@
             Welcome back
           </div>
           <div class="d-flex mt-4">
-            <form class="w-100">
+            <form class="w-100" [formGroup]="myForm" (ngSubmit)="onSubmit()">
               <div class="d-flex gap-4 flex-column">
-                <div class="form-group">
-                  <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/User.png" /></span>
-                  <input type="text" class="form-control" placeholder="Username" value="John Doe">
+                <div>
+                  <div class="form-group">
+                    <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/User.png" /></span>
+                    <input type="text" class="form-control" placeholder="Username" value="John Doe" formControlName="userName">
+                  </div>
+                  <div class="invalid-input mt-2" *ngIf="myForm.get('userName')?.invalid && myForm.get('userName')?.touched">
+                    <div *ngIf="myForm.get('userName')?.hasError('required')">
+                      <img class="me-2 align-top" src="./../../assets/images/error.png" />User name is required.
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/password_lock.png" /></span>
-                  <input type="text" class="form-control" placeholder="Password" >
+                <div>
+                  <div class="form-group">
+                    <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/password_lock.png" /></span>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+                  </div>
+                  <div class="invalid-input mt-2" *ngIf="myForm.get('password')?.touched && myForm.get('password')?.errors">
+                    <div *ngIf="myForm.get('password')?.hasError('required')">
+                      <img class="me-2 align-top" src="./../../assets/images/error.png" />Password is required.
+                    </div>
+                    <div class="d-flex" *ngIf="myForm.get('password')?.hasError('minlength') || myForm.get('password')?.hasError('invalidPassword') && !myForm.get('password')?.hasError('required')">
+                     <div class="my-auto">
+                      <img class="me-2 align-top" src="./../../assets/images/error.png" />
+                     </div>
+                     <div>Please enter atleast 8 character with number, symbol, capital and small letter.</div>
+                    </div>
+                  </div>
                 </div>
+
               </div>
               <div class="forgot-text text-end mt-2">
                 <a href="#" class="text-right">Forgot Password?</a>
               </div>
               <div class="d-grid mt-4 pt-1">
-                <button class="btn product-btn" type="button">Login</button>
+                <button class="btn product-btn" type="submit">Login</button>
               </div>
               <div class="sign-up-text mt-4 pt-2 text-center">
                 Don't have an Account? <a href="#">Sign Up</a>

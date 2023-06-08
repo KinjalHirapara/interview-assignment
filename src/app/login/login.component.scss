@@ -6,7 +6,7 @@
 }
 .product-container{
   .product-column{
-    @include media-breakpoint-down(768px) {
+    @include media-breakpoint-down(767px) {
       display: flex;
       align-items: stretch;
     }
@@ -14,7 +14,7 @@
   .product-left-content{
     background: $secondary-color;
     position: relative;
-    @include media-breakpoint-down(768px) {
+    @include media-breakpoint-down(767px) {
       height: auto !important;
     }
     .product-titles-container{
@@ -24,7 +24,14 @@
       width: calc(505px + 71px);
       padding-top: 189px;
       padding-left: 71px;
-      @include media-breakpoint-down(768px) {
+      @include media-breakpoint-down(767px) {
+        padding-top: 42px;
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 6px;
+        width: 100%;
+      }
+      @include media-breakpoint-down(991px) {
         padding-top: 42px;
         padding-left: 24px;
         padding-right: 24px;
@@ -38,8 +45,12 @@
         display: flex;
         align-items: flex-end;
         color: #000000;
-        @include media-breakpoint-down(768px) {
+        @include media-breakpoint-down(767px) {
           font-size: 20px;
+          line-height: 33px;
+        }
+        @include media-breakpoint-down(991px) {
+          font-size: 24px;
           line-height: 33px;
         }
         &.shadow-effect::before{
@@ -53,7 +64,7 @@
           opacity: 0.25;
           filter: blur(51px);
           transform: rotate(-15deg);
-          @include media-breakpoint-down(768px) {
+          @include media-breakpoint-down(991px) {
             content: unset;
           }
         }
@@ -68,11 +79,11 @@
       position: absolute;
       bottom: 0;
       right: 62px;
-      @include media-breakpoint-down(768px) {
+      @include media-breakpoint-down(767px) {
         right: 10px;
       }
       img{
-        @include media-breakpoint-down(768px) {
+        @include media-breakpoint-down(767px) {
           width: 80px;
           height: 80px;
         }
@@ -80,14 +91,14 @@
     }
   }
   .product-right-content{
-    @include media-breakpoint-down(768px) {
+    @include media-breakpoint-down(767px) {
       height: auto !important;
     }
     .product-login-form {
       width: 330px;
       .product-lock{
         margin-top: 70px;
-        @include media-breakpoint-down(768px) {
+        @include media-breakpoint-down(767px) {
           margin-top: 35px;
         }
         .lock-image{
@@ -102,7 +113,7 @@
         font-weight: 600;
         font-size: 24px;
         line-height: 33px;
-        @include media-breakpoint-down(768px) {
+        @include media-breakpoint-down(767px) {
           font-size: 20px;
           line-height: 27px;
         }
