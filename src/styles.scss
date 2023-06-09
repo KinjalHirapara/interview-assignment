@@ -76,13 +76,10 @@ body {
   border-radius: 4px;
 }
 
-.product-btn:active {
+.product-btn:active, .product-btn:disabled {
   background: $primary-color !important;
   border-color: $primary-color !important;
   color: #fff !important;
-  -webkit-box-shadow: inset 0px 0px 5px $secondary-color;
-  -moz-box-shadow: inset 0px 0px 5px $secondary-color;
-  box-shadow: inset 0px 0px 5px $secondary-color;
   outline: none;
 }
 .invalid-input{

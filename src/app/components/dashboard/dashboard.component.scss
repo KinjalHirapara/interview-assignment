@@ -1,0 +1,32 @@
+.product-dashboard{
+  .btn-delete{
+    height: 32px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .table-title{
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .user-table{
+    th{
+      color: #737373;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 14px;
+    }
+    td {
+      font-weight: 400;
+      font-size: 11px;
+      color: #000;
+      line-height: 14px;
+    }
+    .form-check-input{
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
