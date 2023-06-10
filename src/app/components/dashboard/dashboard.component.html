@@ -16,42 +16,42 @@
         <thead>
           <tr>
             <th [width]="30"><input class="form-check-input" type="checkbox"  [(ngModel)]="selectAll" (change)="selectAllRows()"/></th>
-            <th (click)="sortBy('username')">
+            <th >
               <div class="d-flex">
                 <div class="my-auto">
                   User Name
                 </div>
                 <div class="ms-2">
                   <div class="d-flex flex-column position-relative lh-1">
-                    <i class="bi bi-caret-up-fill lh-1"></i>
-                    <i class="bi bi-caret-down-fill lh-1"></i>
+                    <a href="javascript:void(0)" (click)="sortBy('userName', 'asc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'userName' && sortOrder === 'asc' }"><i class="bi bi-caret-up-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('userName', 'desc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'userName' && sortOrder === 'desc'}"><i class="bi bi-caret-down-fill lh-1"></i></a>
                   </div>
                 </div>
               </div>
 
             </th>
-            <th (click)="sortBy('phonenumber')">
+            <th>
               <div class="d-flex">
                 <div class="my-auto">
                   Phone Number
                 </div>
                 <div class="ms-2">
                   <div class="d-flex flex-column position-relative lh-1">
-                    <i class="bi bi-caret-up-fill lh-1"></i>
-                    <i class="bi bi-caret-down-fill lh-1"></i>
+                    <a href="javascript:void(0)" (click)="sortBy('phoneNumber', 'asc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'phoneNumber' && sortOrder === 'asc' }"><i class="bi bi-caret-up-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('phoneNumber', 'desc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'phoneNumber' && sortOrder === 'desc' }"><i class="bi bi-caret-down-fill lh-1"></i></a>
                   </div>
                 </div>
               </div>
             </th>
-            <th (click)="sortBy('emailid')">
+            <th>
               <div class="d-flex">
                 <div class="my-auto">
                   Email ID
                 </div>
                 <div class="ms-2">
                   <div class="d-flex flex-column position-relative lh-1">
-                    <i class="bi bi-caret-up-fill lh-1"></i>
-                    <i class="bi bi-caret-down-fill lh-1"></i>
+                    <a href="javascript:void(0)" (click)="sortBy('emailID', 'asc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'emailID' && sortOrder === 'asc' }"><i class="bi bi-caret-up-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('emailID', 'desc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'emailID' && sortOrder === 'desc' }"><i class="bi bi-caret-down-fill lh-1"></i></a>
                   </div>
                 </div>
               </div>

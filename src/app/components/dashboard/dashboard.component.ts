@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   selectedItems: User[] = [];
   isRowSelected: boolean = false;
   private deleteButtonSubscription?: Subscription;
+  sortOrder: string = 'asc';
+  activeSortColumn: string | null = null;
   @ViewChild(DeleteModalComponent, { static: false }) deleteModal: DeleteModalComponent | null = null;
 
   constructor(private userServices : UsersService, private cdRef: ChangeDetectorRef, private sharedService: SharedService){}
@@ -48,10 +50,34 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.cdRef.detectChanges();
   }
 
-  sortBy(column: string) {
-    // Implement your sorting logic here
-    console.log("hi");
+  sortBy(column: string, type: string) {
+    // sorting logic here
+    this.sortOrder = type;
+    this.usersList.sort((a, b) => {
+      const valueA = this.getUserValue(a, column);
+      const valueB = this.getUserValue(b, column);
+
+      if (valueA < valueB) {
+        return this.sortOrder === 'asc' ? -1 : 1;
+      } else if (valueA > valueB) {
+        return this.sortOrder === 'asc' ? 1 : -1;
+      } else {
+        return 0;
+      }
+    });
+    this.activeSortColumn = column;
   }
+
+  getUserValue(user: any, column: string): any {
+    const userprop = column.split('.');
+    let u = user;
+    for (const prop of userprop) {
+      u = u[prop];
+    }
+    return u;
+  }
+
+
 
   selectAllRows() {
     this.isRowSelected = this.selectAll;
