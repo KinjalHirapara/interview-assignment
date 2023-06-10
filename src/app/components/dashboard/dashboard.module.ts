@@ -5,15 +5,19 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { HeaderComponent } from 'src/app/shared-component/header/header.component';
 
+import { FormsModule } from '@angular/forms';
+import { DeleteModalComponent } from 'src/app/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    DeleteModalComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

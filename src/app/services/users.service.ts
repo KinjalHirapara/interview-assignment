@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
+import { User } from '../interface/user.interface';
 
-interface Record {
-  id: number,
-  userName: string;
-  phoneNumber: number;
-  emailID: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -15,19 +11,21 @@ export class UsersService {
 
   constructor(private httpService: HttpService) { }
 
-  getAllUser(users: Record[]) {
-    this.httpService.get(`users/${users}`);
+  getAllUser(): Observable<User[]>{
+    return this.httpService.get(`users`) as Observable<User[]>;
   }
 
   getUser(userId: number) {
     return this.httpService.get(`users/${userId}`);
   }
 
-  createUser(user: Record) {
+  createUser(user: User) {
     return this.httpService.post('users', user);
   }
 
-  deleteUser(userId: number) {
+  deleteUser(userId: string) {
     return this.httpService.delete(`users/${userId}`);
   }
+
+
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -7,8 +7,6 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpService {
-
-  // private apiUrl = 'http://localhost:3000/posts';
 
   private baseUrl = 'http://localhost:3000'; // Replace with your API base URL
 
@@ -35,9 +33,19 @@ export class HttpService {
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
-    // Handle and log the error here
-    console.error('An error occurred:', error);
-    return throwError('Something bad happened; please try again later.');
+  handleError(error: any) {
+    let errorMessage = '';
+
+    if (error.error instanceof ErrorEvent) {
+      // Client-side error
+      errorMessage = `An error occurred: ${error.error.message}`;
+    } else {
+      // Server-side error
+      errorMessage = `Server returned error code ${error.status}: ${error.message}`;
+    }
+
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
+
 }

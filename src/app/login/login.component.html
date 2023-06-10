@@ -51,7 +51,7 @@
                     <input type="password" class="form-control" placeholder="Password" formControlName="password">
                     <span *ngIf="this.myForm.get('password')?.valid" class="input-valid-icon"><i class="bi bi-check-circle"></i></span>
                   </div>
-                  <div class="invalid-input mt-2" *ngIf="myForm.get('password')?.touched && myForm.get('password')?.errors">
+                  <div class="invalid-input mt-2" *ngIf="myForm.get('password')?.touched && myForm.get('password')?.invalid">
                     <div *ngIf="myForm.get('password')?.hasError('required')">
                       <img class="me-2 align-top" src="./../../assets/images/error.png" />Password is required.
                     </div>

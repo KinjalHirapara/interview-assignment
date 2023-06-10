@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .product-dashboard{
   .btn-delete{
     height: 32px;
@@ -16,6 +18,10 @@
       font-weight: 600;
       font-size: 11px;
       line-height: 14px;
+      min-width: 150px;
+      &:first-child{
+        min-width: 30px;
+      }
     }
     td {
       font-weight: 400;
@@ -27,6 +33,32 @@
       width: 12px;
       height: 12px;
     }
+    .info-icon{
+      color: #1494D5;
+    }
+    .icon-bg{
+      padding: 2px 5px;
+      background: #F9F9F9;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+    }
+    .drag-icon{
+      padding: 2px 6px;
+      img{
+        vertical-align: baseline;
+      }
+    }
+    .highlight td{
+      background-color: #FFDADA;
+    }
   }
 }
-
+.bi-caret-up-fill::before{
+  position: absolute;
+  color: #000;
+}
+.bi-caret-down-fill::before{
+  position: absolute;
+  top: 7px;
+  color: #000;
+}

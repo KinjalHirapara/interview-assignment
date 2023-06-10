@@ -88,11 +88,10 @@ body {
   line-height: 16px;
   color: #C20006;
 }
-.ng-invalid.ng-touched{
+.form-control.ng-invalid.ng-touched{
   border-color: #C20006;
 }
-
-.ng-valid.ng-touched{
+.form-control.ng-valid.ng-touched{
   border-color: #00A364;
 }
 .input-valid-icon{
