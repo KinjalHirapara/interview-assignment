@@ -1,0 +1,21 @@
+<div class="modal fade" tabindex="-1" role="dialog" #modal>
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="d-flex">
+          <div class="confirm-icon d-flex justify-content-center align-items-center">
+            <img src="../../assets/images/Warning_icon.png" alt="warning icon"/>
+          </div>
+          <div class="product-modal-content flex-grow-1">
+              <p class="product-modal-message">Are you sure you want to delete?</p>
+              <div class="pt-1 d-flex w-100 justify-content-end gap-2">
+                <button type="button" class="btn product-btn yes-btn" (click)="DeleteClick()">Yes</button>
+                <button type="button" class="btn product-btn cancel-btn" data-dismiss="modal" (click)="closeModal()">Cancel</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

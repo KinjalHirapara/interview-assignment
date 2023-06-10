@@ -6,77 +6,90 @@
       <button class="btn product-btn btn-delete" type="button" (click)="openDeleteModal()"  [disabled]="!isRowSelected">Delete</button>
     </div>
   </div>
-  <div class="text-danger" *ngIf="errorMessage != ''">
+  <div class="text-danger" *ngIf="errorMessage != '' else noError">
     {{errorMessage}}
   </div>
-  <div *ngIf="errorMessage == ''" class="table-responsive mt-3">
-    <table class="user-table table table-bordered">
-      <thead>
-        <tr>
-          <th [width]="30"><input class="form-check-input" type="checkbox"  [(ngModel)]="selectAll" (change)="selectAllRows()"/></th>
-          <th (click)="sortBy('username')">
-            <div class="d-flex">
-              <div class="my-auto">
-                User Name
-              </div>
-              <div class="ms-2">
-                <div class="d-flex flex-column position-relative lh-1">
-                  <i class="bi bi-caret-up-fill lh-1"></i>
-                  <i class="bi bi-caret-down-fill lh-1"></i>
-                </div>
-              </div>
-            </div>
+  <ng-template #noError>
+    <div class="table-responsive mt-3">
 
-          </th>
-          <th (click)="sortBy('phonenumber')">
-            <div class="d-flex">
-              <div class="my-auto">
-                Phone Number
-              </div>
-              <div class="ms-2">
-                <div class="d-flex flex-column position-relative lh-1">
-                  <i class="bi bi-caret-up-fill lh-1"></i>
-                  <i class="bi bi-caret-down-fill lh-1"></i>
+      <table class="user-table table table-bordered">
+        <thead>
+          <tr>
+            <th [width]="30"><input class="form-check-input" type="checkbox"  [(ngModel)]="selectAll" (change)="selectAllRows()"/></th>
+            <th (click)="sortBy('username')">
+              <div class="d-flex">
+                <div class="my-auto">
+                  User Name
+                </div>
+                <div class="ms-2">
+                  <div class="d-flex flex-column position-relative lh-1">
+                    <i class="bi bi-caret-up-fill lh-1"></i>
+                    <i class="bi bi-caret-down-fill lh-1"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-          </th>
-          <th (click)="sortBy('emailid')">
-            <div class="d-flex">
-              <div class="my-auto">
-                Email ID
-              </div>
-              <div class="ms-2">
-                <div class="d-flex flex-column position-relative lh-1">
-                  <i class="bi bi-caret-up-fill lh-1"></i>
-                  <i class="bi bi-caret-down-fill lh-1"></i>
+
+            </th>
+            <th (click)="sortBy('phonenumber')">
+              <div class="d-flex">
+                <div class="my-auto">
+                  Phone Number
+                </div>
+                <div class="ms-2">
+                  <div class="d-flex flex-column position-relative lh-1">
+                    <i class="bi bi-caret-up-fill lh-1"></i>
+                    <i class="bi bi-caret-down-fill lh-1"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-          </th>
-          <th>
-            <div class="d-flex justify-content-end gap-2">
-              <div>Options</div>
-              <div class="info-icon"><i class="bi bi-info-circle-fill"></i></div>
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr [ngClass]="{'highlight': user.selected}" *ngFor="let user of usersList">
-          <td><input class="form-check-input" type="checkbox" [(ngModel)]="user.selected" (change)="updateRowSelection()"/></td>
-          <td>{{ user.userName }}</td>
-          <td>{{ user.phoneNumber }}</td>
-          <td>{{ user.emailID }}</td>
-          <td>
-            <div class="d-flex gap-2 justify-content-end">
-              <div><span class="icon-bg"><i class="bi bi-trash3"></i></span></div>
-              <div><span class="icon-bg drag-icon"><img src="../../../assets/images/Drag_icon.png"  alt="drag drop icon"/></span></div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </th>
+            <th (click)="sortBy('emailid')">
+              <div class="d-flex">
+                <div class="my-auto">
+                  Email ID
+                </div>
+                <div class="ms-2">
+                  <div class="d-flex flex-column position-relative lh-1">
+                    <i class="bi bi-caret-up-fill lh-1"></i>
+                    <i class="bi bi-caret-down-fill lh-1"></i>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div class="d-flex justify-content-end gap-2">
+                <div>Options</div>
+                <div class="info-icon"><i class="bi bi-info-circle-fill"></i></div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="usersList.length > 0; else noData">
+            <tr [ngClass]="{'highlight': user.selected}" *ngFor="let user of usersList">
+              <td><input class="form-check-input" type="checkbox" [(ngModel)]="user.selected" (change)="updateRowSelection()"/></td>
+              <td>{{ user.userName }}</td>
+              <td>{{ user.phoneNumber }}</td>
+              <td>{{ user.emailID }}</td>
+              <td>
+                <div class="d-flex gap-2 justify-content-end">
+                  <div><span class="icon-bg"><i class="bi bi-trash3"></i></span></div>
+                  <div><span class="icon-bg drag-icon"><img src="../../../assets/images/Drag_icon.png"  alt="drag drop icon"/></span></div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #noData>
+            <tr>
+              <td colspan="5" class="text-center"><b>No data found.</b></td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+
   </div>
+  </ng-template>
 
 </div>
+
+<app-delete-modal></app-delete-modal>
