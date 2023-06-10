@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
+  // get all user from data.json
   getAllUser(){
     this.userServices.getAllUser().subscribe(
       (users: User[]) => {
@@ -43,6 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     );
   }
 
+  // delete selected user from table
   deleteSelectedUsers() {
     this.selectedItems = this.usersList.filter(user => user.selected);
     const userIds = this.selectedItems.map(user => user.id);
@@ -70,6 +72,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
+  //select all table row
   selectAllRows() {
     this.isRowSelected = this.selectAll;
     for (const user of this.usersList) {
@@ -77,10 +80,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
+  // select single table row
   updateRowSelection() {
     this.isRowSelected = this.usersList.some(user => user.selected);
   }
 
+  // sorting table column
   sortBy(column: string, type: string) {
     // sorting logic here
     this.sortOrder = type;
@@ -99,6 +104,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.activeSortColumn = column;
   }
 
+  // get user value for row sorting
   getUserValue(user: any, column: string): any {
     const userprop = column.split('.');
     let u = user;
