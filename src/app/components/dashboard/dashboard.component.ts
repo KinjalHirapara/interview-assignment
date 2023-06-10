@@ -50,6 +50,37 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.cdRef.detectChanges();
   }
 
+  // Delete button click open modal
+  openDeleteModal() {
+    if (this.deleteModal) {
+      this.deleteModal.openModal();
+    }
+  }
+
+  // row delete button click
+  deleteUser(selectedUser: User){
+    this.openDeleteModal();
+    // Update the selected user
+    this.usersList.forEach((user) => {
+      if (user === selectedUser) {
+        user.selected = true;
+      } else {
+        user.selected = false;
+      }
+    });
+  }
+
+  selectAllRows() {
+    this.isRowSelected = this.selectAll;
+    for (const user of this.usersList) {
+      user.selected = this.selectAll;
+    }
+  }
+
+  updateRowSelection() {
+    this.isRowSelected = this.usersList.some(user => user.selected);
+  }
+
   sortBy(column: string, type: string) {
     // sorting logic here
     this.sortOrder = type;
@@ -75,25 +106,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       u = u[prop];
     }
     return u;
-  }
-
-
-
-  selectAllRows() {
-    this.isRowSelected = this.selectAll;
-    for (const user of this.usersList) {
-      user.selected = this.selectAll;
-    }
-  }
-
-  updateRowSelection() {
-    this.isRowSelected = this.usersList.some(user => user.selected);
-  }
-
-  openDeleteModal() {
-    if (this.deleteModal) {
-      this.deleteModal.openModal();
-    }
   }
 
   ngOnDestroy(): void {
