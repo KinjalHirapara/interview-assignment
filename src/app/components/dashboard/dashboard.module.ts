@@ -7,12 +7,14 @@ import { HeaderComponent } from 'src/app/shared-component/header/header.componen
 
 import { FormsModule } from '@angular/forms';
 import { DeleteModalComponent } from 'src/app/delete-modal/delete-modal.component';
+import { ToastMessageComponent } from 'src/app/shared-component/toast-message/toast-message.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     HeaderComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    ToastMessageComponent
   ],
   imports: [
     CommonModule,

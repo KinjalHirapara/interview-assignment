@@ -3,7 +3,8 @@
   <div class="d-flex">
     <p class="my-auto table-title">Lorem ipsum is a dummy text</p>
     <div class="ms-auto">
-      <button class="btn product-btn btn-delete" type="button" (click)="openDeleteModal()"  [disabled]="!isRowSelected">Delete</button>
+      <button class="btn product-btn btn-delete" type="button" (click)="openDeleteModal()"
+        [disabled]="!isRowSelected">Delete</button>
     </div>
   </div>
   <div class="text-danger" *ngIf="errorMessage != '' else noError">
@@ -15,16 +16,21 @@
       <table class="user-table table table-bordered">
         <thead>
           <tr>
-            <th [width]="30"><input class="form-check-input" type="checkbox"  [(ngModel)]="selectAll" (change)="selectAllRows()"/></th>
-            <th >
+            <th [width]="30"><input class="form-check-input" type="checkbox" [(ngModel)]="selectAll"
+                (change)="selectAllRows()" /></th>
+            <th>
               <div class="d-flex">
                 <div class="my-auto">
                   User Name
                 </div>
                 <div class="ms-2">
                   <div class="d-flex flex-column position-relative lh-1">
-                    <a href="javascript:void(0)" (click)="sortBy('userName', 'asc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'userName' && sortOrder === 'asc' }"><i class="bi bi-caret-up-fill lh-1"></i></a>
-                    <a href="javascript:void(0)" (click)="sortBy('userName', 'desc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'userName' && sortOrder === 'desc'}"><i class="bi bi-caret-down-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('userName', 'asc')"
+                      [ngClass]="{ 'active-sort-icon': activeSortColumn === 'userName' && sortOrder === 'asc' }"><i
+                        class="bi bi-caret-up-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('userName', 'desc')"
+                      [ngClass]="{ 'active-sort-icon': activeSortColumn === 'userName' && sortOrder === 'desc'}"><i
+                        class="bi bi-caret-down-fill lh-1"></i></a>
                   </div>
                 </div>
               </div>
@@ -37,8 +43,12 @@
                 </div>
                 <div class="ms-2">
                   <div class="d-flex flex-column position-relative lh-1">
-                    <a href="javascript:void(0)" (click)="sortBy('phoneNumber', 'asc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'phoneNumber' && sortOrder === 'asc' }"><i class="bi bi-caret-up-fill lh-1"></i></a>
-                    <a href="javascript:void(0)" (click)="sortBy('phoneNumber', 'desc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'phoneNumber' && sortOrder === 'desc' }"><i class="bi bi-caret-down-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('phoneNumber', 'asc')"
+                      [ngClass]="{ 'active-sort-icon': activeSortColumn === 'phoneNumber' && sortOrder === 'asc' }"><i
+                        class="bi bi-caret-up-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('phoneNumber', 'desc')"
+                      [ngClass]="{ 'active-sort-icon': activeSortColumn === 'phoneNumber' && sortOrder === 'desc' }"><i
+                        class="bi bi-caret-down-fill lh-1"></i></a>
                   </div>
                 </div>
               </div>
@@ -50,8 +60,12 @@
                 </div>
                 <div class="ms-2">
                   <div class="d-flex flex-column position-relative lh-1">
-                    <a href="javascript:void(0)" (click)="sortBy('emailID', 'asc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'emailID' && sortOrder === 'asc' }"><i class="bi bi-caret-up-fill lh-1"></i></a>
-                    <a href="javascript:void(0)" (click)="sortBy('emailID', 'desc')" [ngClass]="{ 'active-sort-icon': activeSortColumn === 'emailID' && sortOrder === 'desc' }"><i class="bi bi-caret-down-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('emailID', 'asc')"
+                      [ngClass]="{ 'active-sort-icon': activeSortColumn === 'emailID' && sortOrder === 'asc' }"><i
+                        class="bi bi-caret-up-fill lh-1"></i></a>
+                    <a href="javascript:void(0)" (click)="sortBy('emailID', 'desc')"
+                      [ngClass]="{ 'active-sort-icon': activeSortColumn === 'emailID' && sortOrder === 'desc' }"><i
+                        class="bi bi-caret-down-fill lh-1"></i></a>
                   </div>
                 </div>
               </div>
@@ -67,14 +81,17 @@
         <tbody>
           <ng-container *ngIf="usersList.length > 0; else noData">
             <tr [ngClass]="{'highlight': user.selected}" *ngFor="let user of usersList">
-              <td><input class="form-check-input" type="checkbox" [(ngModel)]="user.selected" (change)="updateRowSelection()"/></td>
+              <td><input class="form-check-input" type="checkbox" [(ngModel)]="user.selected"
+                  (change)="updateRowSelection()" /></td>
               <td>{{ user.userName }}</td>
               <td>{{ user.phoneNumber }}</td>
               <td>{{ user.emailID }}</td>
               <td>
                 <div class="d-flex gap-2 justify-content-end">
-                  <div><a href="javascript:void(0)" (click)="deleteUser(user)"><span class="icon-bg"><i class="bi bi-trash3"></i></span></a></div>
-                  <div><span class="icon-bg drag-icon"><img src="../../../assets/images/Drag_icon.png"  alt="drag drop icon"/></span></div>
+                  <div><a href="javascript:void(0)" (click)="deleteUser(user)"><span class="icon-bg"><i
+                          class="bi bi-trash3"></i></span></a></div>
+                  <div><span class="icon-bg drag-icon"><img src="../../../assets/images/Drag_icon.png"
+                        alt="drag drop icon" /></span></div>
                 </div>
               </td>
             </tr>
@@ -87,9 +104,10 @@
         </tbody>
       </table>
 
-  </div>
+    </div>
   </ng-template>
 
 </div>
 
 <app-delete-modal></app-delete-modal>
+<app-toast-message [message]="toastMessage"></app-toast-message>

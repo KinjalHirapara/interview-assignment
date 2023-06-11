@@ -10,11 +10,12 @@
             <span class="fw-light pe-2">for distance</span> learning
           </div>
           <div class="product-description">
-            Internet and online based digital technologies such as desktop computers, mobile phones and other
+            Internet and online based digital technologies such as desktop
+            computers, mobile phones and other
           </div>
         </div>
         <div class="product-icons-image">
-          <img src="./../../assets/images/image1.png" alt="message_icon"/>
+          <img src="./../../assets/images/image1.png" alt="message_icon" />
         </div>
       </div>
     </div>
@@ -22,24 +23,30 @@
       <div class="product-right-content d-flex h-100">
         <div class="product-login-form m-auto">
           <div class="product-logo text-center">
-            <img src="./../../assets/images/logo.png" alt="logo"/>
+            <img src="./../../assets/images/logo.png" alt="logo" />
           </div>
           <div class="product-lock d-flex justify-content-center">
-            <div class="lock-image text-center d-flex justify-content-center align-items-center"><img src="./../../assets/images/LockVector.png" /></div>
+            <div class="lock-image text-center d-flex justify-content-center align-items-center">
+              <img src="./../../assets/images/LockVector.png" />
+            </div>
           </div>
-          <div class="product-welcome-text text-center mt-4">
-            Welcome back
-          </div>
+          <div class="product-welcome-text text-center mt-4">Welcome back</div>
           <div class="d-flex mt-4">
             <form class="w-100" [formGroup]="myForm" (ngSubmit)="onSubmit()">
               <div class="d-flex gap-4 flex-column">
                 <div>
                   <div class="form-group">
-                    <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/User.png" /></span>
-                    <input type="text" class="form-control" placeholder="Username" value="John Doe" formControlName="userName">
-                    <span *ngIf="this.myForm.get('userName')?.valid" class="input-valid-icon"><i class="bi bi-check-circle"></i></span>
+                    <span class="input-group-icon rounded-top rounded-bottom"><img
+                        src="./../../assets/images/User.png" /></span>
+                    <input type="text" class="form-control" placeholder="Username" value="John Doe"
+                      formControlName="userName" />
+                    <span *ngIf="this.myForm.get('userName')?.valid" class="input-valid-icon"><i
+                        class="bi bi-check-circle"></i></span>
                   </div>
-                  <div class="invalid-input mt-2" *ngIf="myForm.get('userName')?.invalid && myForm.get('userName')?.touched">
+                  <div class="invalid-input mt-2" *ngIf="
+                      myForm.get('userName')?.invalid &&
+                      myForm.get('userName')?.touched
+                    ">
                     <div *ngIf="myForm.get('userName')?.hasError('required')">
                       <img class="me-2 align-top" src="./../../assets/images/error.png" />User name is required.
                     </div>
@@ -47,23 +54,34 @@
                 </div>
                 <div>
                   <div class="form-group">
-                    <span class="input-group-icon rounded-top rounded-bottom"><img src="./../../assets/images/password_lock.png" /></span>
-                    <input type="password" class="form-control" placeholder="Password" formControlName="password">
-                    <span *ngIf="this.myForm.get('password')?.valid" class="input-valid-icon"><i class="bi bi-check-circle"></i></span>
+                    <span class="input-group-icon rounded-top rounded-bottom"><img
+                        src="./../../assets/images/password_lock.png" /></span>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+                    <span *ngIf="this.myForm.get('password')?.valid" class="input-valid-icon"><i
+                        class="bi bi-check-circle"></i></span>
                   </div>
-                  <div class="invalid-input mt-2" *ngIf="myForm.get('password')?.touched && myForm.get('password')?.invalid">
+                  <div class="invalid-input mt-2" *ngIf="
+                      myForm.get('password')?.touched &&
+                      myForm.get('password')?.invalid
+                    ">
                     <div *ngIf="myForm.get('password')?.hasError('required')">
                       <img class="me-2 align-top" src="./../../assets/images/error.png" />Password is required.
                     </div>
-                    <div class="d-flex" *ngIf="myForm.get('password')?.hasError('minlength') || myForm.get('password')?.hasError('invalidPassword') && !myForm.get('password')?.hasError('required')">
-                     <div class="my-auto">
-                      <img class="me-2 align-top" src="./../../assets/images/error.png" />
-                     </div>
-                     <div>Please enter atleast 8 character with number, symbol, capital and small letter.</div>
+                    <div class="d-flex" *ngIf="
+                        myForm.get('password')?.hasError('minlength') ||
+                        (myForm.get('password')?.hasError('invalidPassword') &&
+                          !myForm.get('password')?.hasError('required'))
+                      ">
+                      <div class="my-auto">
+                        <img class="me-2 align-top" src="./../../assets/images/error.png" />
+                      </div>
+                      <div>
+                        Please enter atleast 8 character with number, symbol,
+                        capital and small letter.
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </div>
               <div class="forgot-text text-end mt-2">
                 <a href="#" class="text-right">Forgot Password?</a>

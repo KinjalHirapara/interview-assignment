@@ -1,41 +1,72 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild  } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { User } from '../../interface/user.interface';
 import { UsersService } from 'src/app/services/users.service';
 import { DeleteModalComponent } from '../../delete-modal/delete-modal.component';
 import { SharedService } from 'src/app/services/shared.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-
-  usersList : User[] = [];
-  errorMessage: string ='';
+  usersList: User[] = [];
+  errorMessage: string = '';
   selectAll: boolean = false;
   selectedItems: User[] = [];
   isRowSelected: boolean = false;
   private deleteButtonSubscription?: Subscription;
   sortOrder: string = 'asc';
   activeSortColumn: string | null = null;
-  @ViewChild(DeleteModalComponent, { static: false }) deleteModal: DeleteModalComponent | null = null;
+  toastMessage: string = '';
+  @ViewChild(DeleteModalComponent, { static: false })
+  deleteModal: DeleteModalComponent | null = null;
 
-  constructor(private userServices : UsersService, private cdRef: ChangeDetectorRef, private sharedService: SharedService){}
+  constructor(
+    private userServices: UsersService,
+    private cdRef: ChangeDetectorRef,
+    private sharedService: SharedService,
+    private routeActive: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getAllUser();
-    this.deleteButtonSubscription = this.sharedService.deleteButtonClicked.subscribe(() => {
-      this.deleteSelectedUsers();
-    });
+    this.deleteButtonSubscription =
+      this.sharedService.deleteButtonClicked.subscribe(() => {
+        this.deleteSelectedUsers();
+        this.showToastMessage('Deleted Successfully');
+      });
+
+    const loginMessageShown = localStorage.getItem('loginMessageShown');
+    if (loginMessageShown === 'true') {
+      // Show login message
+      this.showToastMessage('Login Successfully');
+      // Clear the flag value in localStorage
+      localStorage.removeItem('loginMessageShown');
+    }
+  }
+
+  //show toast message function
+  showToastMessage(message: string) {
+    this.toastMessage = message;
+    setTimeout(() => {
+      this.toastMessage = '';
+    }, 3000);
   }
 
   // get all user from data.json
-  getAllUser(){
+  getAllUser() {
     this.userServices.getAllUser().subscribe(
       (users: User[]) => {
         // Handle the received user data
-        this.usersList =users;
+        this.usersList = users;
       },
       (error: any) => {
         // Handle the error
@@ -46,9 +77,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   // delete selected user from table
   deleteSelectedUsers() {
-    this.selectedItems = this.usersList.filter(user => user.selected);
-    const userIds = this.selectedItems.map(user => user.id);
-    this.usersList = this.usersList.filter(user => !userIds.includes(user.id));
+    this.selectedItems = this.usersList.filter((user) => user.selected);
+    const userIds = this.selectedItems.map((user) => user.id);
+    this.usersList = this.usersList.filter(
+      (user) => !userIds.includes(user.id)
+    );
     this.cdRef.detectChanges();
   }
 
@@ -60,7 +93,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   // row delete button click
-  deleteUser(selectedUser: User){
+  deleteUser(selectedUser: User) {
     this.openDeleteModal();
     // Update the selected user
     this.usersList.forEach((user) => {
@@ -82,7 +115,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   // select single table row
   updateRowSelection() {
-    this.isRowSelected = this.usersList.some(user => user.selected);
+    this.isRowSelected = this.usersList.some((user) => user.selected);
   }
 
   // sorting table column

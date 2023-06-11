@@ -1,23 +1,23 @@
-@import '../../variables';
+@import "../../variables";
 @mixin media-breakpoint-down($breakpoint) {
   @media (max-width: $breakpoint) {
     @content;
   }
 }
-.product-container{
-  .product-column{
+.product-container {
+  .product-column {
     @include media-breakpoint-down(767px) {
       display: flex;
       align-items: stretch;
     }
   }
-  .product-left-content{
+  .product-left-content {
     background: $secondary-color;
     position: relative;
     @include media-breakpoint-down(767px) {
       height: auto !important;
     }
-    .product-titles-container{
+    .product-titles-container {
       align-items: flex-start;
       padding: 0px;
       gap: 24px;
@@ -38,7 +38,7 @@
         gap: 6px;
         width: 100%;
       }
-      .product-title{
+      .product-title {
         font-weight: 700;
         font-size: 52px;
         line-height: 71px;
@@ -53,8 +53,8 @@
           font-size: 24px;
           line-height: 33px;
         }
-        &.shadow-effect::before{
-          content: '';
+        &.shadow-effect::before {
+          content: "";
           position: absolute;
           width: 166px;
           height: 166px;
@@ -69,20 +69,20 @@
           }
         }
       }
-      .product-description{
+      .product-description {
         font-weight: 400;
         font-size: 16px;
         line-height: 22px;
       }
     }
-    .product-icons-image{
+    .product-icons-image {
       position: absolute;
       bottom: 0;
       right: 62px;
       @include media-breakpoint-down(767px) {
         right: 10px;
       }
-      img{
+      img {
         @include media-breakpoint-down(767px) {
           width: 80px;
           height: 80px;
@@ -90,26 +90,25 @@
       }
     }
   }
-  .product-right-content{
+  .product-right-content {
     @include media-breakpoint-down(767px) {
       height: auto !important;
     }
     .product-login-form {
       width: 330px;
-      .product-lock{
+      .product-lock {
         margin-top: 70px;
         @include media-breakpoint-down(767px) {
           margin-top: 35px;
         }
-        .lock-image{
+        .lock-image {
           width: 48px;
           height: 48px;
           background: $secondary-color;
           border-radius: 48px;
         }
-
       }
-      .product-welcome-text{
+      .product-welcome-text {
         font-weight: 600;
         font-size: 24px;
         line-height: 33px;
@@ -119,7 +118,7 @@
         }
       }
       .forgot-text {
-        a{
+        a {
           color: #797979;
           text-decoration: none;
           font-weight: 400;
@@ -127,12 +126,12 @@
           line-height: 16px;
         }
       }
-      .sign-up-text{
+      .sign-up-text {
         font-weight: 400;
         font-size: 12px;
         line-height: 16px;
         color: #797979;
-        a{
+        a {
           color: #444444;
           text-decoration: none;
           font-weight: 500;
@@ -141,4 +140,3 @@
     }
   }
 }
-

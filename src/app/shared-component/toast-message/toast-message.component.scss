@@ -1,0 +1,14 @@
+.product-toast-position{
+  z-index: 11;
+  .product-toast{
+    border-radius: 0;
+    background-color: #5CB85C;
+    color: #fff;
+    height: 54px;
+    border: none;
+    width: auto;
+    .product-toast-close{
+      color: #FFFFFF;
+    }
+  }
+}
